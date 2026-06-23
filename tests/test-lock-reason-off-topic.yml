@@ -1,0 +1,26 @@
+name: Test lock reason - off-topic
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Invoke action with lock reason off-topic
+        id: action
+        uses: .
+        with:
+          github-token: "fake-token-for-testing"
+          number: "10"
+          lock-reason: "off-topic"
+        continue-on-error: true
+      - name: Assert action was invoked (outcome is not skipped)
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "outcome: $OUTCOME"
+          if [ "$OUTCOME" = "skipped" ]; then
+            echo "FAIL: action was skipped, expected it to run"
+            exit 1
+          fi
+          echo "PASS: action ran with lock-reason=off-topic (outcome=$OUTCOME)"

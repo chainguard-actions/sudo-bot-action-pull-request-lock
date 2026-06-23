@@ -1,0 +1,20 @@
+name: "Lock pull-request"
+author: williamdes
+description: "Lock a pull-request when an event triggers the action"
+inputs:
+    github-token:
+        description: "GitHub Token"
+        required: true
+    number:
+        description: "Pull Request number"
+        required: true
+    lock-reason:
+        description: "The lock reason: off-topic, too heated, resolved, spam"
+        default: "resolved"
+        required: false
+branding:
+    icon: "lock"
+    color: blue
+runs:
+    using: "docker"
+    image: "docker://ghcr.io/sudo-bot/action-pull-request-lock@sha256:e7a47451a107592064f7ac9f95037db83cd3286ddc230f8e4307b3c75c058bdc" # latest
