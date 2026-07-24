@@ -8,6 +8,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 
 | Version | Tag | Upstream commit |
 |---------|-----|-----------------|
+| v1.0.4 | [`v1.0.4`](https://github.com/chainguard-actions/sudo-bot-action-pull-request-lock/tree/v1.0.4) | [`dfbd97e`](https://github.com/sudo-bot/action-pull-request-lock/commit/dfbd97e4189a02e99efc42786c64c8efab8ac0c5) |
 | v2 | [`v2`](https://github.com/chainguard-actions/sudo-bot-action-pull-request-lock/tree/v2) | [`e20c54d`](https://github.com/sudo-bot/action-pull-request-lock/commit/e20c54d0f068b0b2cf3b345e0585c10ac5d5415a) |
 
 ## Privacy
