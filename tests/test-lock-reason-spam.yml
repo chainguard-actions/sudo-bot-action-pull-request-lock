@@ -1,4 +1,4 @@
-name: Test basic usage - lock non-existent PR
+name: Test lock-reason spam
 on:
   workflow_dispatch:
 jobs:
@@ -7,22 +7,22 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Attempt to lock a non-existent PR (expect failure)
+      - name: Attempt to lock a non-existent PR with spam reason
         id: action
         uses: .
         with:
           github-token: ${{ github.token }}
-          number: "999999"
-          lock-reason: "resolved"
+          number: "999998"
+          lock-reason: "spam"
         continue-on-error: true
 
-      - name: Assert action ran (failed gracefully for non-existent PR)
+      - name: Assert action ran with spam lock-reason
         env:
           OUTCOME: ${{ steps.action.outcome }}
         run: |
           echo "outcome: $OUTCOME"
-          # The action should fail because PR 999999 does not exist
-          # We verify it ran and produced a failure (not a setup/infrastructure error)
+          # The action should fail because PR 999998 does not exist,
+          # but it should not crash due to an invalid lock-reason input.
           if [ "$OUTCOME" = "failure" ]; then
             echo "PASS: action ran and failed as expected for non-existent PR"
           elif [ "$OUTCOME" = "success" ]; then

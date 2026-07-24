@@ -17,4 +17,4 @@ branding:
     color: blue
 runs:
     using: "docker"
-    image: "docker://ghcr.io/sudo-bot/action-pull-request-lock@sha256:e7a47451a107592064f7ac9f95037db83cd3286ddc230f8e4307b3c75c058bdc" # latest
+    image: "docker://ghcr.io/sudo-bot/action-pull-request-lock:latest@sha256:e7a47451a107592064f7ac9f95037db83cd3286ddc230f8e4307b3c75c058bdc"
