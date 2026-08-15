@@ -1,15 +1,17 @@
-# sudo-bot/action-pull-request-lock
+# Lock a pull-request
 
-Lock a pull-request when an event triggers the action
+This action locks a pull-request
 
-Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at [https://github.com/sudo-bot/action-pull-request-lock](https://github.com/sudo-bot/action-pull-request-lock).
+## Example usage
 
-## Versions
-
-| Version | Tag | Upstream commit |
-|---------|-----|-----------------|
-| v1.0.4 | [`v1.0.4`](https://github.com/chainguard-actions/sudo-bot-action-pull-request-lock/tree/v1.0.4) | [`dfbd97e`](https://github.com/sudo-bot/action-pull-request-lock/commit/dfbd97e4189a02e99efc42786c64c8efab8ac0c5) |
-| v2 | [`v2`](https://github.com/chainguard-actions/sudo-bot-action-pull-request-lock/tree/v2) | [`e20c54d`](https://github.com/sudo-bot/action-pull-request-lock/commit/e20c54d0f068b0b2cf3b345e0585c10ac5d5415a) |
+```yml
+  - name: lock pull request
+    uses: sudo-bot/action-pull-request-lock@v1.0.5
+    with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        number: ${{ github.event.pull_request.number }}
+        lock-reason: resolved
+```
 
 ## Privacy
 
