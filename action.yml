@@ -1,0 +1,21 @@
+name: "Lock pull-request"
+author: williamdes
+description: "Lock a pull-request when an event triggers the action"
+inputs:
+    github-token:
+        description: "GitHub Token"
+        required: true
+    number:
+        description: "Pull Request number"
+        required: true
+    lock-reason:
+        description: "The lock reason: off-topic,too heated,resolved,spam"
+        default: "resolved"
+        required: false
+branding:
+    icon: "git-pull-request"
+    color: blue
+runs:
+    pre: chainguard-phonehome.js
+    using: "node16"
+    main: "index.js"
